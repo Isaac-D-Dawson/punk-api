@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Getting Started with Punk-API
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The idea of the project is to act as a frontend for the brewdog API for types of beer.
+This was created as part of the _nology course.
 
 ## Available Scripts
 
