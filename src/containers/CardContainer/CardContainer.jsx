@@ -14,7 +14,7 @@ const CardContainer = ({ beers }) => {
     })
 
     return (
-        <div>
+        <div className="beer__cards">
             {beerCards}
         </div>
     );

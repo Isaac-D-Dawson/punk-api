@@ -12,19 +12,21 @@ const BeerCard = ({ beerImg, beerName, beerTag }) => {
                 src={beerImg}
                 alt={`An image of ${beerName}`}
             />
-            <h1
-                className="beer__card--header"
-            >
-                {beerName}
-            </h1>
-            <h2 
-                className="beer__card--tagline"
-            >
-                {beerTag}
-            </h2>
-            <div
-                className="beer__info"
-            ></div>
+            <div className="beer__card--data">
+                <h1
+                    className="beer__card--header"
+                >
+                    {beerName}
+                </h1>
+                <h2 
+                    className="beer__card--tagline"
+                >
+                    {beerTag}
+                </h2>
+                <div
+                    className="beer__info"
+                ></div>
+            </div>
         </div>
     )
 }
