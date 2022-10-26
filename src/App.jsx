@@ -9,28 +9,50 @@ import NavPanel from './containers/NavPanel/NavPanel';
 
 const App = () => {
     const [beerData, setBeerData] = useState();
+    const [ searchTerm, setSearchTerm ] = useState("");
 
     const baseURL = "https://api.punkapi.com/v2/beers/"
-    let filteredURL = `${baseURL}[]`; 
+    // let [filteredURL, filterURL] = useState(`${baseURL}`); 
 
-    const getBeerData = async () => {
+    const getBeerData = async (url=baseURL) => {
         // console.log(url)
-        const res = await fetch(filteredURL);
+        const res = await fetch(url);
         const data = await res.json();
         // console.log(data);
         setBeerData(data);
     };
 
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value
+            // .split(" ").join("_") //He said "_"
+        ); 
+    };
+
     // console.log(beerData)
 
     useEffect(() => {
-        getBeerData()
-    }, [])
+        if (searchTerm !== "") {
+            getBeerData(`${baseURL}?beer_name=${searchTerm}`)
+        } else {
+            getBeerData(baseURL)
+        }
+        console.log(beerData)
+    }, [searchTerm])
+
+    // useEffect(() => {
+    //     console.log("Got beer Data")
+    //     console.log(filteredURL)
+    //     getBeerData()
+    //     console.log(beerData)
+    // }, [searchTerm])
 
     return (
         <main>
             {/* <Button onClick={getBeerData} label="Update Beer Data"/> */}
-            <NavPanel />
+            <NavPanel
+                searchTerm={searchTerm}
+                handleInput={handleSearch}
+            />
             <CardContainer
                 beers={beerData}
             />
