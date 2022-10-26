@@ -6,7 +6,7 @@ const NavPanel = ( {} ) => {
     return (
         <nav>
             {/* Searchbox */}
-            {/* checklist container */}
+            {/* checklist container/Checklist objects */}
         </nav>
     )
 }
