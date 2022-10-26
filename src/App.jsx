@@ -12,7 +12,8 @@ const App = () => {
     const [ searchTerm, setSearchTerm ] = useState("");
 
     const baseURL = "https://api.punkapi.com/v2/beers/"
-    // let [filteredURL, filterURL] = useState(`${baseURL}`); 
+    // let [filteredURL, filterURL] = useState(`${baseURL}`);
+    let filteredURL = `${baseURL}`;
 
     const getBeerData = async (url=baseURL) => {
         // console.log(url)
@@ -32,11 +33,9 @@ const App = () => {
 
     useEffect(() => {
         if (searchTerm !== "") {
-            getBeerData(`${baseURL}?beer_name=${searchTerm}`)
-        } else {
-            getBeerData(baseURL)
+            filteredURL = `${baseURL}?beer_name=${searchTerm}`
         }
-        console.log(beerData)
+        getBeerData(filteredURL);
     }, [searchTerm])
 
     // useEffect(() => {
