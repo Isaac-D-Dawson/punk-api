@@ -1,8 +1,12 @@
 // import "./SearchBox.scss";
 
+/**
+ * 
+ * @label String; sets displayed label for search.
+ * @searchTerm Variable; I/O for user search. Accessible by user.
+ * @handleInput Function; Run when input is changed. Used for interacting with searchTerm.
+ */
 const SearchBox = ({ label, searchTerm, handleInput }) => {
-
-  // const capitalizedLabel = label[0].toUpperCase() + label.slice(1);
 
   return (
     <form className="search-box">

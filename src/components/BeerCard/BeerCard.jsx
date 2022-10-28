@@ -1,7 +1,12 @@
 import "./BeerCard.scss";
 
+/**
+ * Generates a card element displaying provided beer info.
+ * @beerImg String(URL); Image URL for card.
+ * @beerName String; Displayed name on card
+ * @beerTag String; Displayed tagline on card.
+ */
 const BeerCard = ({ beerImg, beerName, beerTag }) => {
-
 
     return (
         <div

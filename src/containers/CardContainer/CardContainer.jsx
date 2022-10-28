@@ -1,13 +1,16 @@
 import "./CardContainer.scss";
 import BeerCard from "../../components/BeerCard/BeerCard";
 
-// import testData from "../../data/beerTestData";
-
+/**
+ * handles creation and arrangement of individual BeerCard components.
+ * @beers JSON object returned from the Brewdog API.
+ * Objects require all keys required by BeerCard components.
+ * 
+ * @beerImg String(URL); Image URL for card.
+ * @beerName String; Displayed name on card
+ * @beerTag String; Displayed tagline on card.
+ */
 const CardContainer = ({ beers }) => {
-
-    // if (!beers) {
-    //     beers = testData;
-    // }
 
     if (beers) {
     return (
