@@ -23,20 +23,65 @@ const App = () => {
         setBeerData(data);
     };
 
-    const handleSearch = (event) => {
+    const handleFilter = (event) => {
         setSearchTerm(event.target.value
             // .split(" ").join("_") //He said "_"
         ); 
     };
 
+    //Set one of these for each checkbox.
+    const [highABV, setABV ] = useState(false);
+
+    const handleABV = () => {
+        // console.log(!highABV);
+        setABV(!highABV);
+    }
+
+    const [isClassic, setClassic ] = useState(false);
+
+    const handleClassic = () => {
+        // console.log(!isClassic);
+        setClassic(!isClassic);
+    }
+
+    const [highAcid, setAcid ] = useState(false);
+
+    const handleAcid = () => {
+        // console.log(!highAcid);
+        setAcid(!highAcid);
+    }
+
     // console.log(beerData)
 
     useEffect(() => {
+        let filterData = []
+        let filteredURL = baseURL;
         if (searchTerm !== "") {
-            filteredURL = `${baseURL}?beer_name=${searchTerm}`
+            filterData.push(`beer_name=${searchTerm}`)
         }
+        if (highABV) {
+            filterData.push(`abv_gt=6`);
+        }
+        if(isClassic) {
+            filterData.push(`brewed_before=01-2010`)
+        }
+        if(highAcid) {
+            filterData.push(`ibu_gt=4`)
+        }
+
+        if (filterData.length >= 1) {
+            filteredURL += `?${filterData[0]}`;
+        }
+        if (filterData.length >= 2) {
+            // console.log(filterData.slice(1))
+            filteredURL += filterData.slice(1).reduce((result, current) => {
+                console.log([result, current])
+                return result += `&${current}`;
+            }, "")
+        }
+        console.log(filteredURL)
         getBeerData(filteredURL);
-    }, [searchTerm])
+    }, [searchTerm, highABV, isClassic, highAcid])
 
     // useEffect(() => {
     //     console.log("Got beer Data")
@@ -50,7 +95,13 @@ const App = () => {
             {/* <Button onClick={getBeerData} label="Update Beer Data"/> */}
             <NavPanel
                 searchTerm={searchTerm}
-                handleInput={handleSearch}
+                handleSearch={handleFilter}
+                highABV={highABV}
+                handleABV={handleABV}
+                isClassic={isClassic}
+                handleClassic={handleClassic}
+                highAcid={highAcid}
+                handleAcid={handleAcid}
             />
             <CardContainer
                 beers={beerData}
