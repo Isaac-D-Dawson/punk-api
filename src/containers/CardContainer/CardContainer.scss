@@ -1,5 +1,6 @@
 .beer__cards {
     display:flex;
-
     flex-wrap: wrap;
+
+    min-width: 70vw;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import './App.scss';
 import CardContainer from './containers/CardContainer/CardContainer';
 import NavPanel from './containers/NavPanel/NavPanel';
 // import Button from "./components/Button/Button";

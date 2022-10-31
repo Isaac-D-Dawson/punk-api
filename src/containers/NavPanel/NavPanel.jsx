@@ -13,7 +13,7 @@ import Checkbox from "../../components/Checkbox/Checkbox";
 const NavPanel = ({ searchTerm, handleSearch, highABV, handleABV, isClassic, handleClassic, highAcid, handleAcid }) => {
 
     return (
-        <nav>
+        <div className="beer__filters">
             <SearchBox
                 label="Search Beer Names: "
                 searchTerm={searchTerm}
@@ -36,7 +36,7 @@ const NavPanel = ({ searchTerm, handleSearch, highABV, handleABV, isClassic, han
                 checkValue={highAcid}
                 onChange={handleAcid}
             />
-        </nav>
+        </div>
     )
 }
 

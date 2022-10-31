@@ -1,6 +1,6 @@
 
     .beer__card {
-        width: 25vw;
+        width: 20vw;
 
         
         display: flex;
@@ -14,8 +14,19 @@
 
         .beer__card--image {
 
-            max-width: 25vw;
+            max-width: 20vw;
             max-height: 30vh;
         
+        }
+
+        .beer__card--data{
+
+            h1 {
+                display: flex;
+                flex-wrap: wrap;
+                overflow:hidden;
+                text-overflow: ellipsis;
+            }
+
         }
     }
